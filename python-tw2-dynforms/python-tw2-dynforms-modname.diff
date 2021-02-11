@@ -1,0 +1,51 @@
+# The value for modname is incorrect for several widgets,
+# pointing to "tw2.dynforms.widget" rather than "tw2.dynforms".
+--- tw2.dynforms-2.0.1/tw2/dynforms/widgets.py.bak	2012-04-12 00:55:04.000000000 +0200
++++ tw2.dynforms-2.0.1/tw2/dynforms/widgets.py	2021-02-11 21:17:20.573677949 +0100
+@@ -8,7 +8,7 @@
+     attrs = {
+         'onclick': 'twd_grow_del(this); return false;',
+     }
+-    modname = __name__
++    modname = 'tw2.dynforms'
+     filename = 'static/del.png'
+     alt = 'Delete row'
+     validator = twc.BlankValidator
+@@ -17,8 +17,8 @@
+ class GrowingGridLayout(twf.GridLayout):
+     """A GridLayout that can dynamically grow on the client, with delete and undo functionality. This is useful for allowing users to enter a list of items that can vary in length. To function correctly, the widget must appear inside a CustomisedForm."""
+     resources = [
+-        twc.Link(id='undo', modname=__name__, filename="static/undo.png"),
+-        twc.JSLink(modname=__name__, filename="static/dynforms.js"),
++        twc.Link(id='undo', modname='tw2.dynforms', filename="static/undo.png"),
++        twc.JSLink(modname='tw2.dynforms', filename="static/dynforms.js"),
+     ]
+     template = 'genshi:tw2.dynforms.templates.growing_grid_layout'
+ 
+@@ -61,7 +61,7 @@
+ #--
+ class HidingComponentMixin(twc.Widget):
+     """This widget is a $$ with additional functionality to hide or show other widgets in the form, depending on the value selected. The widget must be used inside a hiding container, e.g. HidingTableLayout."""
+-    resources = [twc.JSLink(modname=__name__, filename='static/dynforms.js')]
++    resources = [twc.JSLink(modname='tw2.dynforms', filename='static/dynforms.js')]
+ 
+     mapping = twc.Param('A dictionary that maps selection values to visible controls', request_local=False)
+ 
+@@ -222,7 +222,7 @@
+ class LinkContainer(twc.DisplayOnlyWidget):
+     """This widget provides a "View" link adjacent to any other widget required. This link is visible only when a value is selected, and allows the user to view detailed information on the current selection."""
+     template = "genshi:tw2.dynforms.templates.link_container"
+-    resources = [twc.JSLink(modname=__name__, filename='static/dynforms.js')]
++    resources = [twc.JSLink(modname='tw2.dynforms', filename='static/dynforms.js')]
+ 
+     link = twc.Param('The link target. If a $ character is present in the URL, it is replaced with the current value of the widget.')
+     view_text = twc.Param('Text to appear in the link', default='View')
+@@ -243,7 +243,7 @@
+     disable_enter = twc.Param('Disable the enter button (except with textarea fields). This reduces the chance of users accidentally submitting the form.', default=True)
+     prevent_multi_submit = twc.Param('When the user clicks the submit button, disable it, to prevent the user causing multiple submissions.', default=True)
+ 
+-    resources = [twc.JSLink(modname=__name__, filename="static/dynforms.js")]
++    resources = [twc.JSLink(modname='tw2.dynforms', filename="static/dynforms.js")]
+ 
+     def prepare(self):
+         super(CustomisedForm, self).prepare()

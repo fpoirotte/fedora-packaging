@@ -1,0 +1,15 @@
+# The test dependencies listed in setup.py do not match
+# the component's actual test dependencies.
+--- tw2.dynforms-2.0.1/setup.py.bak	2021-02-11 19:13:47.283112966 +0100
++++ tw2.dynforms-2.0.1/setup.py	2021-02-11 19:34:25.727112887 +0100
+@@ -28,9 +28,8 @@
+     tests_require = [
+         'nose',
+         'formencode',
+-        'BeautifulSoup',
+-        'strainer',
+         'WebTest',
++        'sieve',
+     ],
+     entry_points="""
+         [tw2.widgets]

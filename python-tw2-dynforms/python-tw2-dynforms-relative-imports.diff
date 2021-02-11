@@ -1,0 +1,12 @@
+# Make the use of relative imports explicit
+--- tw2.dynforms-2.0.1/tw2/dynforms/__init__.py.bak	2021-02-11 19:22:53.283112970 +0100
++++ tw2.dynforms-2.0.1/tw2/dynforms/__init__.py	2021-02-11 19:23:02.111112932 +0100
+@@ -4,7 +4,7 @@
+ powerful functionality with ease.
+ """
+ 
+-from widgets import (
++from .widgets import (
+     CustomisedForm, CustomisedTableForm, LinkContainer, GrowingGridLayout,
+     HidingTableLayout, HidingListLayout,
+     HidingSingleSelectField, HidingCheckBox, HidingCheckBoxList,
