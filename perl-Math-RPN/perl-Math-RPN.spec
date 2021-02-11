@@ -6,7 +6,7 @@ Release:        0.1%{?dist}
 Summary:        Perl extension for Reverse Polish Math Expression Evaluation
 
 License:        GPL+ or Artistic
-URL:            http://search.cpan.org/dist/Math-RPN
+URL:            https://metacpan.org/release/%{upstream_name}
 Source0:        https://cpan.metacpan.org/modules/by-module/Math/%{upstream_name}-%{version}.tar.gz
 BuildArch:      noarch
 
