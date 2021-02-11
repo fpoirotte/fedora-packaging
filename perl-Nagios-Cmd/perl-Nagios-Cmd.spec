@@ -29,6 +29,7 @@ rm -rf %{buildroot}
 find %{buildroot} -name ".packlist" -exec rm -f '{}' \;
 
 %check
+# Upstream has no tests
 #./Build test
 
 %files
