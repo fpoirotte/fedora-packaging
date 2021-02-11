@@ -56,7 +56,4 @@ make test
 
 %changelog
 * Fri Jan 08 2021 Francois Poirotte <francois.poirotte@c-s.fr> - 1.11-0.1
-- Update to 1.11 and build for EL7 and EL8
-
-* Tue Jun 21 2016 Francois Poirotte <francois.poirotte@c-s.fr> - 1.09-1
-- Re-build for RHEL 7
+- Update to 1.11 and build for EL8
