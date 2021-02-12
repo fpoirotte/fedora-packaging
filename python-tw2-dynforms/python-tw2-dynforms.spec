@@ -35,10 +35,11 @@ tw2.dynforms includes dynamic form building widgets that use JavaScript.
 %description %_description
 
 %package -n python3-tw2-dynforms
-Summary: %summary
+Summary:        %summary
 Requires:       python3dist(genshi)
 Requires:       python3dist(tw2.core)
 Requires:       python3dist(tw2.forms)
+%{?python_provide:%python_provide python3-tw2-dynforms}
 
 %description -n python3-tw2-dynforms %_description
 
