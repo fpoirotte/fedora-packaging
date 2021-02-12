@@ -12,6 +12,7 @@ URL:            http://sprox.org
 # using github tarball instead, because it contains tests
 Source0:        https://github.com/TurboGears/%{srcname}/archive/%{version}.tar.gz#/%{srcname}-%{version}.tar.gz
 Patch0:         python-sprox-py39.patch
+Patch1:         python-sprox-doctests.patch
 
 BuildArch:      noarch
 
@@ -51,6 +52,7 @@ Requires:       python3-formencode >= 1.3.0
 %prep
 %setup -q -n %{srcname}-%{version}
 %patch0 -p1 -b .py39
+%patch1 -p1 -b .doctests
 
 %build
 %py3_build

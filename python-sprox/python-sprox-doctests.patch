@@ -1,0 +1,10 @@
+--- sprox-0.11.2/tests/test_doctests.py.bak	2021-02-12 17:06:06.646980840 +0100
++++ sprox-0.11.2/tests/test_doctests.py	2021-02-12 17:06:49.514980985 +0100
+@@ -41,6 +41,7 @@
+ 
+ class MyOutputChecker(doctest.OutputChecker):
+     def check_output(self, want, got, optionflags):
++        raise ValueError(repr((want, got, optionflags, XML_OUTPUT)))
+         if optionflags & XML_OUTPUT:
+             return check_output_xml(want, got, optionflags)
+         return original_check_output(self, want, got, optionflags)
