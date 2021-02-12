@@ -68,7 +68,7 @@ PYTHONPATH=$(pwd) nosetests-%{python3_version} -v
 
 %files -n python3-%{srcname}
 %license license.txt
-%doc CHANGELOG
+%doc CHANGELOG.txt
 %{python3_sitelib}/%{srcname}*
 
 %changelog
