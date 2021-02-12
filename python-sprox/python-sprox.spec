@@ -3,7 +3,7 @@
 Name:           python-%{srcname}
 Version:        0.11.2
 Release:        1%{?dist}
-Summary:        A package for creation of web widgets directly from database schema
+Summary:        A package for creation of web widgets directly from a database schema
 
 Group:          Development/Languages
 License:        MIT
@@ -34,7 +34,7 @@ BuildRequires:  python3-tw2-forms
 
 %global _description\
 Sprox is a widget generation library that has a slightly different take on the\
-problem of creating custom web content directly from database schemas. Sprox\
+problem of creating custom web content directly from a database schema. Sprox\
 provides an easy way to create forms for web content which are: automatically\
 generated, easy to customize, and validated. Sprox also has powerful tools to\
 help you display your content the way you want to with table and record\
@@ -67,6 +67,8 @@ rm -fr %{buildroot}%{python3_sitelib}/tests
 PYTHONPATH=$(pwd) nosetests-%{python3_version} -v
 
 %files -n python3-%{srcname}
+%license license.txt
+%doc CHANGELOG
 %{python3_sitelib}/%{srcname}*
 
 %changelog
