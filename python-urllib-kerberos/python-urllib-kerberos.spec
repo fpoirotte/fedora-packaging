@@ -3,7 +3,7 @@
 Name:           python-urllib-kerberos
 Version:        0.2.0
 Release:        1%{?dist}
-Summary:        Kerberos over HTTP Negotiate/SPNEGO support for urllib2
+Summary:        Kerberos over HTTP Negotiate/SPNEGO for urllib2
 
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{srcname}/
@@ -14,7 +14,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %global _description\
-urllib2 with Kerberos authentication.
+Adds Kerberos support to urllib2 using either HTTP Negotiate/SPNEGO.
 
 %description %_description
 
