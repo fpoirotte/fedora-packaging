@@ -1,9 +1,8 @@
 %define upstream_name Nagios-Cmd
 
-Name: perl-%{upstream_name}
-Version: 0.05
-Release: 0.1%{?dist}
-
+Name:      perl-%{upstream_name}
+Version:   0.05
+Release:   1%{?dist}
 Summary:   Read a FIFO or regular file like Nagios does
 License:   GPL+ or Artistic
 URL:       https://metacpan.org/release/%{upstream_name}
@@ -39,5 +38,5 @@ find %{buildroot} -name ".packlist" -exec rm -f '{}' \;
 %{_mandir}/*/*
 
 %changelog
-* Fri Jan 08 2021 Francois Poirotte <francois.poirotte@c-s.fr> - 0.05-0.1
+* Fri Jan 08 2021 Francois Poirotte <francois.poirotte@c-s.fr> - 0.05-1
 - Initial package for rawhide/EL8

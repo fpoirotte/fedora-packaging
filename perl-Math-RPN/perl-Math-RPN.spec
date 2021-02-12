@@ -2,7 +2,7 @@
 
 Name:           perl-%{upstream_name}
 Version:        1.11
-Release:        0.1%{?dist}
+Release:        1%{?dist}
 Summary:        Perl extension for Reverse Polish Math Expression Evaluation
 
 License:        GPL+ or Artistic
@@ -55,5 +55,5 @@ make test
 
 
 %changelog
-* Fri Jan 08 2021 Francois Poirotte <francois.poirotte@c-s.fr> - 1.11-0.1
-- Update to 1.11 and build for EL8
+* Fri Jan 08 2021 Francois Poirotte <francois.poirotte@c-s.fr> - 1.11-1
+- Update to 1.11 and build for rawhide/EL8

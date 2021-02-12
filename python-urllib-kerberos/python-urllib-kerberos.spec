@@ -2,7 +2,7 @@
 
 Name:           python-urllib-kerberos
 Version:        0.2.0
-Release:        0.1%{?dist}
+Release:        1%{?dist}
 Summary:        Kerberos over HTTP Negotiate/SPNEGO support for urllib2
 
 License:        ASL 2.0
@@ -42,5 +42,5 @@ Requires:       python3dist(kerberos)
 %{python3_sitelib}/%{srcname}*
 
 %changelog
-* Fri Feb 12 2021 Francois Poirotte <francois.poirotte@csnovidys.com> - 0.2.0-0.1
+* Fri Feb 12 2021 Francois Poirotte <francois.poirotte@csnovidys.com> - 0.2.0-1
 - Initial package.
