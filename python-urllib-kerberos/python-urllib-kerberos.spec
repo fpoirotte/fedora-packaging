@@ -38,6 +38,7 @@ Requires:       python3dist(kerberos)
 # The tests are disabled because they require internet access.
 
 %files -n python3-urllib-kerberos
+%license COPYING
 %defattr(-,root,root,-)
 %{python3_sitelib}/%{srcname}*
 
