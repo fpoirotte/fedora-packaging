@@ -40,7 +40,7 @@ sed -i '/^#!\/usr\/bin\/python/,+1 d' lib/urllib_kerberos/__init__.py
 # The tests are disabled because they require internet access.
 
 %files -n python3-urllib-kerberos
-%license COPYING
+%doc README.md
 %defattr(-,root,root,-)
 %{python3_sitelib}/%{srcname}*
 
