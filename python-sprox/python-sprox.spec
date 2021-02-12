@@ -22,7 +22,8 @@ BuildRequires:  python3-formencode >= 1.3.0
 # For testing
 BuildRequires:  python3-genshi
 BuildRequires:  python3-mako
-BuildRequires:  python3-ming
+# Ming is not part of Fedora yet
+#BuildRequires:  python3-ming
 BuildRequires:  python3-nose
 BuildRequires:  python3-sieve
 BuildRequires:  python3-sqlalchemy
