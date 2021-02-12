@@ -7,7 +7,7 @@ Summary:        A package for creation of web widgets directly from a database s
 
 Group:          Development/Languages
 License:        MIT
-URL:            https://github.com/TurboGears/%{srcname}/
+URL:            https://pypi.org/project//%{srcname}/
 
 # using github tarball instead, because it contains tests
 Source0:        https://github.com/TurboGears/%{srcname}/archive/%{version}.tar.gz#/%{srcname}-%{version}.tar.gz

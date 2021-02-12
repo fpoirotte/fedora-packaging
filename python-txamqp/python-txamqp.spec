@@ -6,7 +6,7 @@ Release:        1%{?dist}
 Summary:        A Python library for communicating with AMQP peers and brokers using Twisted
 
 License:        ASL 2.0
-URL:            https://github.com/txamqp/txamqp
+URL:            https://pypi.org/project/txAMQP/
 Source0:        https://files.pythonhosted.org/packages/source/t/txAMQP/txAMQP-%{version}.tar.gz
 
 BuildArch:      noarch
