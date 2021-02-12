@@ -27,6 +27,8 @@ Requires:       python3dist(kerberos)
 
 %prep
 %setup -q -n %{srcname}-%{version}
+# Fix non-executable-script error
+sed -i '/^#!\/usr\/bin\/python/,+1 d' lib/urllib_kerberos/__init__.py
 
 %build
 %{__python3} setup.py build
