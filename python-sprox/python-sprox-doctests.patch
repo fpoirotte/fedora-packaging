@@ -1,10 +1,66 @@
 --- sprox-0.11.2/tests/test_doctests.py.bak	2021-02-12 17:06:06.646980840 +0100
-+++ sprox-0.11.2/tests/test_doctests.py	2021-02-12 17:06:49.514980985 +0100
-@@ -41,6 +41,7 @@
++++ sprox-0.11.2/tests/test_doctests.py	2021-02-12 17:38:20.027980859 +0100
+@@ -1,5 +1,6 @@
+ from sprox.configbase import ConfigBase, ConfigBaseError
+-from sprox.test.base import setup_database, sorted_user_columns, SproxTest, setup_records, Example, Document, eq_xml
++from sprox.test.base import setup_database, sorted_user_columns, SproxTest, setup_records, Example, Document
++from sieve.operators import eq_xml
+ from sprox.test.model import User, Town
+ import os.path, re
+ from nose.tools import raises, eq_
+@@ -8,6 +9,8 @@
+ import inspect
+ import doctest
  
++XML_OUTPUT = doctest.register_optionflag("XML")
++
+ import unittest
+ 
+ from nose.plugins import doctests as nose_doctest
+@@ -30,30 +33,17 @@
+     #session.commit()
+ 
+ 
+-def check_output_xml(want, got, optionsflags):
+-    return eq_xml(want, got)
+-
+-from doctest import OutputChecker
+-original_check_output = OutputChecker.check_output
+-import doctest
+-
+-XML_OUTPUT = doctest.register_optionflag("XML")
+-
  class MyOutputChecker(doctest.OutputChecker):
      def check_output(self, want, got, optionflags):
-+        raise ValueError(repr((want, got, optionflags, XML_OUTPUT)))
          if optionflags & XML_OUTPUT:
-             return check_output_xml(want, got, optionflags)
-         return original_check_output(self, want, got, optionflags)
+-            return check_output_xml(want, got, optionflags)
+-        return original_check_output(self, want, got, optionflags)
+-
+-doctest.OutputChecker = MyOutputChecker
++            return eq_xml(want, got)
++        return doctest.OutputChecker.check_output(self, want, got, optionflags)
+ 
+ def teardown():
+     session.rollback()
+ 
+ def test_doctests():
+     global session, metadata
+-    import unittest
+-    import doctest
+ 
+     def setUp(self):
+         #this may be needed if we end up testing the provider with doctests
+@@ -63,11 +53,12 @@
+         #session.rollback()
+         pass
+     suite = unittest.TestSuite()
++    checker = MyOutputChecker()
+     for mod in dir(sprox):
+         mod = getattr(sprox, mod)
+         if inspect.ismodule(mod):
+             try:
+-                suite.addTest(doctest.DocTestSuite(mod, globs={'session':session, 'User': User, 'Town':Town, 'metadata':metadata}, setUp=setUp, tearDown=tearDown))
++                suite.addTest(doctest.DocTestSuite(mod, globs={'session':session, 'User': User, 'Town':Town, 'metadata':metadata}, setUp=setUp, tearDown=tearDown, checker=checker))
+             except ValueError:
+                 pass
+ 

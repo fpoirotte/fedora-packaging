@@ -1,0 +1,32 @@
+--- sprox-0.11.2/tests/test_testbase.py.bak	2021-02-12 17:38:44.216980862 +0100
++++ sprox-0.11.2/tests/test_testbase.py	2021-02-12 17:40:14.817980851 +0100
+@@ -1,4 +1,5 @@
+-from sprox.test.base import eq_xml, in_xml, fix_xml
++from sprox.test.base import fix_xml
++from sieve.operators import assert_eq_xml
+ 
+ def test_fix_xml():
+     s = """<form action="" method="post" class="required tableform">
+@@ -6,7 +7,7 @@
+         </form>"""
+     e = """<form action="" class="required tableform" method="post"><div /></form>"""
+     r =fix_xml(s)
+-    assert r == e, (r, s)
++    assert_eq_xml(r, e)
+ 
+ def test_fix_xml_with_escapes():
+     s = """<form action="" method="post" class="required tableform">
+@@ -14,7 +15,7 @@
+         </form>"""
+     e = """<form action="" class="required tableform" method="post"><div /></form>"""
+     r =fix_xml(s)
+-    assert r == e, r
++    assert_eq_xml(r, e)
+ 
+ def test_fix_xml_with_namespace():
+     s = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+@@ -28,3 +29,4 @@
+     </html>"""
+     e = """<html><body><form action="" class="required tableform" method="post"><div /></form></body></html>"""
+     r =fix_xml(s)
++    assert_eq_xml(r, e)
