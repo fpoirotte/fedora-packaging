@@ -13,15 +13,20 @@ URL:            http://sprox.org
 Source0:        https://github.com/TurboGears/%{srcname}/archive/%{version}.tar.gz#/%{srcname}-%{version}.tar.gz
 
 BuildArch:      noarch
+
+# For building
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-sqlalchemy
-BuildRequires:  python3-formencode >= 1.2.2
-BuildRequires:  python3-tw2-forms
-BuildRequires:  python3-sieve
-BuildRequires:  python3-mako
+BuildRequires:  python3-formencode >= 1.3.0
+
+# For testing
 BuildRequires:  python3-genshi
+BuildRequires:  python3-mako
+BuildRequires:  python3-ming
 BuildRequires:  python3-nose
+BuildRequires:  python3-sieve
+BuildRequires:  python3-sqlalchemy
+BuildRequires:  python3-tw2-forms
 
 %global _description\
 Sprox is a widget generation library that has a slightly different take on the\
@@ -36,8 +41,7 @@ other content with customizable data.
 
 %package -n python3-%{srcname}
 Summary:        %summary
-Requires:       python3-sqlalchemy
-Requires:       python3-formencode >= 1.2.2
+Requires:       python3-formencode >= 1.3.0
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname} %_description
